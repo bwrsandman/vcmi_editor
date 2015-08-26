@@ -1,6 +1,14 @@
+CC=gcc
+CFLAGS=
+CDEPS =
+COBJ = $(CDEPS:.h=.o)
+
+%.o: %.c $(CDEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
 all: vcmieditor
 
-vcmieditor:
+vcmieditor: $(COBJ)
 	lazbuild 3rd_party/csvdocument/csvdocument_package.lpk vcmieditor.lpr
 
 build_tests: vcmieditor tests/tests.lpi tests/tests.lpr
