@@ -152,10 +152,10 @@ begin
   begin
     FFileStream.Read(item{%H-},SizeOf(item));
 
-    LeToNInPlase(item.FileLength);
-    LeToNInPlase(item.FileOffset);
-    LeToNInPlase(item.FileType);
-    LeToNInPlase(item.UncompressedFileSize);
+    LEtoNinPlace(item.FileLength);
+    LEtoNinPlace(item.FileOffset);
+    LEtoNinPlace(item.FileType);
+    LEtoNinPlace(item.UncompressedFileSize);
 
     ACallback(self,item);
   end;

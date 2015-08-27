@@ -485,14 +485,14 @@ begin
 
   with h do
   begin
-    LeToNInPlase(prSize);
-    LeToNInPlase(defType2);
-    LeToNInPlase(FullHeight);
-    LeToNInPlase(FullWidth);
-    LeToNInPlase(SpriteHeight);
-    LeToNInPlase(SpriteWidth);
-    LeToNInPlase(LeftMargin);
-    LeToNInPlase(TopMargin);
+    LEtoNinPlace(prSize);
+    LEtoNinPlace(defType2);
+    LEtoNinPlace(FullHeight);
+    LEtoNinPlace(FullWidth);
+    LEtoNinPlace(SpriteHeight);
+    LEtoNinPlace(SpriteWidth);
+    LEtoNinPlace(LeftMargin);
+    LEtoNinPlace(TopMargin);
   end;
 
   RightMargin := h.FullWidth - h.SpriteWidth - h.LeftMargin;
