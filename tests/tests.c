@@ -10,6 +10,31 @@ START_TEST(test_NormalizeResourceName)
 }
 END_TEST
 
+START_TEST(test_LEtoNinPlace)
+{
+    unsigned int val = 0xFF;
+    LEtoNinPlace(&val);
+    if (ENDIAN_LITTLE)
+        ck_assert_uint_eq(0xFF, val);
+    else
+        ck_assert_uint_eq(0xFF000000, val);
+
+    val = 0xFF000000;
+    LEtoNinPlace(&val);
+    if (ENDIAN_LITTLE)
+        ck_assert_uint_eq(0xFF000000, val);
+    else
+        ck_assert_uint_eq(0xFF, val);
+
+    val = 0x12345678;
+    LEtoNinPlace(&val);
+    if (ENDIAN_LITTLE)
+        ck_assert_uint_eq(0x12345678, val);
+    else
+        ck_assert_uint_eq(0x78563412, val);
+}
+END_TEST
+
 Suite * editor_utils_suite()
 {
     Suite * s;
@@ -21,6 +46,7 @@ Suite * editor_utils_suite()
     tc_core = tcase_create("Core");
 
     tcase_add_test(tc_core, test_NormalizeResourceName);
+    tcase_add_test(tc_core, test_LEtoNinPlace);
     suite_add_tcase(s, tc_core);
 
     return s;

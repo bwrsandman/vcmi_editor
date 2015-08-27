@@ -34,20 +34,33 @@ begin
 end;
 
 procedure TTestEditorUtils.TestLEtoNinPlace;
-var elVal: LongInt;
+var
+  elVal: LongInt;
 begin
 
   elVal := $FF;
   LEtoNinPlace(elVal);
-  AssertEquals(LongInt($FF), elVal);
+  {$IFDEF ENDIAN_LITTLE}
+    AssertEquals(LongInt($FF), elVal);
+  {$ELSE}
+    AssertEquals(LongInt($FF000000), elVal);
+  {$ENDIF}
 
   elVal := $FF000000;
   LEtoNinPlace(elVal);
-  AssertEquals(LongInt($FF000000), elVal);
+  {$IFDEF ENDIAN_LITTLE}
+    AssertEquals(LongInt($FF000000), elVal);
+  {$ELSE}
+    AssertEquals(LongInt($FF), elVal);
+  {$ENDIF}
 
   elVal := $12345678;
   LEtoNinPlace(elVal);
-  AssertEquals(LongInt($12345678), elVal);
+  {$IFDEF ENDIAN_LITTLE}
+    AssertEquals(LongInt($12345678), elVal);
+  {$ELSE}
+    AssertEquals(LongInt($78563412), elVal);
+  {$ENDIF}
 
 end;
 

@@ -2,6 +2,15 @@
 #include "stdlib.h"
 #include "c_editor_utils.h"
 
+void LEtoNinPlace(int * val)
+{
+    if (!ENDIAN_LITTLE)
+        *val = ((*val >> 24) & 0xff)
+             | ((*val >> 8) & 0xff00)
+             | ((*val << 8) & 0xff0000)
+             | ((*val << 24) & 0xff000000);
+}
+
 const char * const NormalizeResourceName(const char * const str)
 {
     unsigned int strsize = 0;
