@@ -47,8 +47,6 @@ type
 
   //TIdToNameMap = specialize TMap<TCustomID,AnsiString,TCustomIDCompare>;
 
-  procedure LeToNInPlase(var Val:Int32); inline;
-
   function CrStrList: TStringList;
 
   procedure FillStringArray(ASrc: TStrings; var ADest: TStringDynArray);
@@ -63,12 +61,6 @@ implementation
 
 uses
   FileUtil;
-
-procedure LeToNInPlase(var Val:Int32); inline;
-begin
-  val := LEtoN(val);
-end;
-
 
 function CrStrList: TStringList;
 begin
