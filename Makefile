@@ -13,12 +13,14 @@ vcmieditor: $(COBJ)
 
 build_tests: vcmieditor tests/tests.lpi tests/tests.lpr
 	lazbuild tests/tests.lpr
+	$(CC) -lcheck tests/tests.c $(COBJ) -o tests/c_tests
 
 test: build_tests
 	./tests/tests --all --progress --format=plain
+	./tests/c_tests
 
 clean_tests:
-	rm -rf tests/tests tests/*.o tests/*.ppu tests/*.compiled
+	rm -rf tests/tests tests/c_tests tests/*.o tests/*.ppu tests/*.compiled
 
 clean: clean_tests
 	rm -rf vcmieditor *.o *.ppu *.compiled 3rd_party/csvdocument/lib/
