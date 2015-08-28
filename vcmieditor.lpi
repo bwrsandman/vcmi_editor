@@ -106,7 +106,7 @@
       <local>
         <FormatVersion Value="1"/>
         <CommandLineParams Value="VCMI_Tests_2011b.h3m"/>
-        <WorkingDirectory Value="C:\projects\vcmi\editor\bin"/>
+        <WorkingDirectory Value="bin"/>
       </local>
       <environment>
         <UserOverrides Count="2">
