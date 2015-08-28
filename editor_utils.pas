@@ -19,12 +19,18 @@
 }
 unit editor_utils;
 
+{$link c_editor_utils.o}
+{$IFDEF MSWINDOWS}
+  {$linklib libmsvcrt}
+{$ELSE}
+  {$linklib c}
+{$ENDIF}
 {$mode objfpc}{$H+}
 
 interface
 
 uses
-  sysutils, Classes, types, editor_types, gmap, gutil;
+  CTypes, sysutils, Classes, types, editor_types, gmap, gutil;
 
 type
 
@@ -49,7 +55,7 @@ type
 
   function NormalizeModId(AModId: TModId): TModId;
 
-  function NormalizeResourceName(const AName: string): string;
+  function NormalizeResourceName(const AName: PChar): PChar; cdecl; external;
 
   function StripScope(const AIdentifier: string): string;
 
@@ -86,13 +92,6 @@ end;
 function NormalizeModId(AModId: TModId): TModId;
 begin
   Result := Trim(LowerCase(AModId));
-end;
-
-function NormalizeResourceName(const AName: string): string;
-begin
-  Result := SetDirSeparators(AName);
-  Result := UpperCase(Result);
-  Result := ExtractFileNameWithoutExt(Result);
 end;
 
 function StripScope(const AIdentifier: string): string;

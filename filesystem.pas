@@ -897,7 +897,7 @@ var
   res_loc: TResLocation;
   it : TResIDToLcationMap.TIterator;
 begin
-  AName := NormalizeResourceName(AName);
+  AName := NormalizeResourceName(PChar(AName));
 
   if FVpathMap.IndexOf(AName) >=0 then
   begin
@@ -1337,11 +1337,11 @@ begin
        begin
           KeyVPath :=  item.Key;
           KeyVPath := IncludeTrailingPathDelimiter(ExtractFilePath(KeyVPath)) + ExtractFileNameOnly(KeyVPath);
-          KeyVPath := NormalizeResourceName(KeyVPath);
+          KeyVPath := NormalizeResourceName(PChar(KeyVPath));
 
           ValueVPath := item.Value.AsString;
           ValueVPath := IncludeTrailingPathDelimiter(ExtractFilePath(ValueVPath)) + ExtractFileNameOnly(ValueVPath);
-          ValueVPath := NormalizeResourceName(ValueVPath);
+          ValueVPath := NormalizeResourceName(PChar(ValueVPath));
 
           FVpathMap.KeyData[KeyVPath] := ValueVPath;
        end;

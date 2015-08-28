@@ -3,7 +3,7 @@ program tests;
 {$mode objfpc}{$H+}
 
 uses
-  Classes, consoletestrunner, testeditor_utils, editor_utils;
+  CMem, Classes, consoletestrunner, testeditor_utils, editor_utils;
 
 type
 

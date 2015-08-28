@@ -23,7 +23,7 @@ begin
 
   path := '/pp\bin/win32\ppc386.txt';
   UniqueString(path);
-  AssertEquals('/PP/BIN/WIN32/PPC386', NormalizeResourceName(path));
+  AssertEquals('/PP/BIN/WIN32/PPC386', NormalizeResourceName(PChar(path)));
   AssertEquals('/pp\bin/win32\ppc386.txt', path);
 
   ptrPath := '/pp\bin/win32\ppc386.txt';

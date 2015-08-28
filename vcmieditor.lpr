@@ -25,6 +25,8 @@ uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}
+  cmem,
+  heaptrc,
   sysutils,
   Interfaces, // this includes the LCL widgetset
   Forms, lazcontrols, main, lod, editor_graphics, Map, editor_types, terrain,

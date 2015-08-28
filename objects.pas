@@ -337,7 +337,7 @@ end;
 
 procedure TObjTemplate.SetAnimation(AValue: AnsiString);
 begin
-  AValue := NormalizeResourceName(AValue);
+  AValue := NormalizeResourceName(PChar(AValue));
   if FAnimation=AValue then Exit;
   FAnimation:=AValue;
 
@@ -350,7 +350,7 @@ end;
 
 procedure TObjTemplate.SetEditorAnimation(AValue: AnsiString);
 begin
-  AValue := NormalizeResourceName(AValue);
+  AValue := NormalizeResourceName(PChar(AValue));
 
   if FEditorAnimation=AValue then Exit;
   FEditorAnimation:=AValue;
@@ -643,7 +643,7 @@ begin
 
       CellToStr(s_tmp);
 
-      def.FFilename := NormalizeResourceName(s_tmp);
+      def.FFilename := NormalizeResourceName(PChar(s_tmp));
 
 
       CellToBitMask(def.FPassability);

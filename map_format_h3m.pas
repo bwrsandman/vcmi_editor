@@ -269,7 +269,7 @@ end;
 
 procedure TLegacyMapObjectTemplate.SetAnimation(AValue: string);
 begin
-  AValue := NormalizeResourceName(AValue);
+  AValue := NormalizeResourceName(PChar(AValue));
   if FAnimation = AValue then Exit;
   FAnimation := AValue;
 

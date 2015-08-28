@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=
-CDEPS =
+CDEPS = c_editor_utils.h
 COBJ = $(CDEPS:.h=.o)
 
 %.o: %.c $(CDEPS)
